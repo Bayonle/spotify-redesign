@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43.657" height="16" viewBox="0 0 43.657 16">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#e1e1e1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
+        </style>
+    </defs>
+    <g id="Group_45" data-name="Group 45" transform="translate(.5 .5)">
+        <path id="Stroke_2" d="M0 15l8.657-7.5L0 0" class="cls-1" data-name="Stroke 2" transform="translate(34)"/>
+        <path id="Stroke_2_Copy" d="M0 15l8.657-7.5L0 0" class="cls-1" data-name="Stroke 2 Copy" transform="rotate(180 4.328 7.5)"/>
+    </g>
+</svg>

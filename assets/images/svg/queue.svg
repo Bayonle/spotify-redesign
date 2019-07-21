@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14">
+    <g id="Queue">
+        <path id="Fill_1" d="M0 0v5.832l4.7-2.917z" style="fill:#d8d8d8" data-name="Fill 1"/>
+        <path id="Fill_2" d="M0 1.167h8.5V0H0z" style="fill:#d8d8d8" data-name="Fill 2" transform="translate(8.5 3.5)"/>
+        <path id="Fill_3" d="M0 1.168h17V0H0z" style="fill:#d8d8d8" data-name="Fill 3" transform="translate(0 8.165)"/>
+        <path id="Fill_4" d="M0 1.167h17V0H0z" style="fill:#d8d8d8" data-name="Fill 4" transform="translate(0 12.833)"/>
+    </g>
+</svg>

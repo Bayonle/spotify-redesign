@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="flex items-start">
-      <div class="left-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6">
+    <div class="relative w-full">
+      <div class="left-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6 fixed left-0 top-0">
 
         <div class="menu flex items-center">
           <div class="circle-dot"></div>
@@ -54,11 +54,11 @@
         </div>
       </div>
 
-
-      <div class="w-3/5">
+      <div class="w-3/5 mx-auto">
           <nuxt />
       </div>
-      <div class="right-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6">
+
+      <div class="right-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6 fixed right-0 top-0">
         <div class="profile flex items-center justify-between">
           <div class="user flex items-center w-1/2 justify-between">
             <img src="~/assets/images/eraz.png" alt="">

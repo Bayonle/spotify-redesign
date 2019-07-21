@@ -19,13 +19,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'color-grey-800': '#575757',
         'color-grey-700': '#3b4c64',
         'color-grey-300': '#597193',
+        'color-grey-600': '#d8d8d8',
         'color-grey-500': '#c3c8d5',
         'color-grey-400': '#afafaf',
         'color-grey-200': '#a9a9a9',
         'color-grey-100': '#d4d4d4',
+        'color-black-1000': '#020916',
+
         'color-black':'#212020',
+        'color-black-400':'#454545',
         'color-black-300':'#454545',
         'color-teal':'#246b85'
       }
