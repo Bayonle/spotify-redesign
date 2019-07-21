@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_13" width="49" height="49" data-name="Group 13" viewBox="0 0 49 49">
+    <defs>
+        <!-- <style>
+            .cls-1,.cls-4{fill:none}.cls-1{stroke:#d4d4d4;stroke-miterlimit:10;stroke-width:.71px}.cls-2{fill:#d4d4d4}.cls-3{stroke:none}
+        </style> -->
+    </defs>
+    <g id="Rectangle_8_Copy_4" style="fill:none;stroke:#d4d4d4;stroke-miterlimit:10;stroke-width:.71px" data-name="Rectangle 8 Copy 4">
+        <rect width="49" height="49" style="stroke:none" rx="24.5"/>
+        <rect width="48.29" height="48.29" x=".355" y=".355" style="fill:none" rx="24.145"/>
+    </g>
+    <path id="Shape" d="M7.5 14.109l-1.348-1.348A40.963 40.963 0 0 1 1.758 8.5 6.465 6.465 0 0 1 0 4.369 4.315 4.315 0 0 1 4.37 0 4.717 4.717 0 0 1 7.5 1.222 4.721 4.721 0 0 1 10.628 0 4.32 4.32 0 0 1 15 4.369 6.465 6.465 0 0 1 13.243 8.5a41.051 41.051 0 0 1-4.395 4.257L7.5 14.109zM4.37 1.09a3.207 3.207 0 0 0-3.28 3.279c0 2.346 2.095 4.312 5.8 7.586l.024.022.588.59.6-.6.013-.012c3.7-3.275 5.8-5.242 5.8-7.586a3.207 3.207 0 0 0-3.28-3.279 3.655 3.655 0 0 0-2.719 1.268l-.417.49-.416-.491A3.649 3.649 0 0 0 4.37 1.09z" style="fill:#d4d4d4" transform="translate(17 18)"/>
+</svg>

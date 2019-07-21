@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "nuxt-svg": "^0.1.6"
   },
   "devDependencies": {
     "tailwindcss": "^1.0.0",
