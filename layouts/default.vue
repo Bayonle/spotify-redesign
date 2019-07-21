@@ -59,7 +59,130 @@
           <nuxt />
       </div>
       <div class="right-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6">
-        <div class="profile">
+        <div class="profile flex items-center justify-between">
+          <div class="user flex items-center w-1/2 justify-between">
+            <img src="~/assets/images/eraz.png" alt="">
+            <a href="" class="text-base text-color-grey-400">Eray Yavuz</a>
+          </div>
+
+          <div class="user-badge flex items-center w-1/2 justify-end">
+            <div class="badge h-6 w-6 rounded-full bg-color-teal text-center mr-2">
+              <span class="text-xs text-color-black font-bold">1</span>
+            </div>
+            <i class="fa fa-angle-down text-4xl text-color-grey-400"></i>
+          </div>
+
+
+        </div>
+        <div class="friend-activity mt-8">
+          <div class="section-title flex items-center justify-between">
+            <h1 class="text-sm text-color-grey-700">FRIEND ACTIVITY</h1>
+          </div>
+
+          <div class="activity-group">
+            <div class="flex items-end justify-between avi">
+              <div class="avatar flex items-end">
+                <img src="~/assets/images/polen.png" class="mr-2" alt="">
+                <span class="activity-link">Polen Merida</span>
+              </div>
+              <div class="time">
+                <span class="text-xs text-color-grey-700">3H</span>
+              </div>
+            </div>
+            <div class="album mt-4 flex items-center justify-between">
+              <div class="album-art flex items-center">
+                <img src="~/assets/images/album-art-paris.png" alt="" class="mr-3">
+                <div class=" text-color-grey-500">
+                  <h1 class="text-sm">A Paris</h1>
+                  <p class="text-xs">Riff Cohen</p>
+                </div>
+              </div>
+              <love-icon />
+            </div>
+            <div class="flex items-center mt-4">
+              <disc-icon class="mr-2"/>
+              <span class="text-color-grey-500 text-xs">Sunday Mood'z</span>
+            </div>
+
+          </div>
+          <div class="activity-group mt-6">
+            <div class="flex items-end justify-between avi">
+              <div class="avatar flex items-end">
+                <img src="~/assets/images/rose.png" class="mr-2" alt="">
+                <span class="activity-link">Rosie Clever</span>
+              </div>
+              <div class="time">
+                <span class="text-xs text-color-grey-700">3H</span>
+              </div>
+            </div>
+            <div class="album mt-4 flex items-center justify-between">
+              <div class="album-art flex items-center">
+                <img src="~/assets/images/album-art-american.png" alt="" class="mr-3">
+                <div class=" text-color-grey-500">
+                  <h1 class="text-sm">American Daydream</h1>
+                  <p class="text-xs">Electric Guest</p>
+                </div>
+              </div>
+              <love-icon />
+            </div>
+            <div class="flex items-center mt-4">
+              <music-icon class="mr-2"/>
+              <span class="text-color-grey-500 text-xs">Discover Weekly</span>
+            </div>
+
+          </div>
+          <div class="activity-group mt-6">
+            <div class="flex items-end justify-between avi">
+              <div class="avatar flex items-end">
+                <img src="~/assets/images/koray.png" class="mr-2" alt="">
+                <span class="activity-link">Koray Seçgin</span>
+              </div>
+              <div class="time">
+                <span class="text-xs text-color-grey-700">3H</span>
+              </div>
+            </div>
+            <div class="album mt-4 flex items-center justify-between">
+              <div class="album-art flex items-center">
+                <img src="~/assets/images/album-art-tuta.png" alt="" class="mr-3">
+                <div class=" text-color-grey-500">
+                  <h1 class="text-sm">Tutamıyorum Zamanı</h1>
+                  <p class="text-xs">Müslüm Gürses</p>
+                </div>
+              </div>
+              <music-icon />
+            </div>
+            <div class="flex items-center mt-4">
+              <disc-icon class="mr-2"/>
+              <span class="text-color-grey-500 text-xs">This Is Müslüm Gürses</span>
+            </div>
+
+          </div>
+          <div class="activity-group mt-6">
+            <div class="flex items-end justify-between avi">
+              <div class="avatar flex items-end">
+                <img src="~/assets/images/diadem.png" class="mr-2" alt="">
+                <span class="activity-link">Didem Sorian</span>
+              </div>
+              <div class="time">
+                <span class="text-xs text-color-grey-700">3H</span>
+              </div>
+            </div>
+            <div class="album mt-4 flex items-center justify-between">
+              <div class="album-art flex items-center">
+                <img src="~/assets/images/album-art-pictures.png" alt="" class="mr-3">
+                <div class=" text-color-grey-500">
+                  <h1 class="text-sm">Pictures Of You</h1>
+                  <p class="text-xs">The Cure</p>
+                </div>
+              </div>
+              <love-icon />
+            </div>
+            <div class="flex items-center mt-4">
+              <disc-icon class="mr-2"/>
+              <span class="text-color-grey-500 text-xs">Sunday Mood'z</span>
+            </div>
+
+          </div>
           
         </div>
 
@@ -72,12 +195,18 @@
 import CompassIcon from '~/assets/images/svg/compass.svg?inline';
 import LikedIcon from '~/assets/images/svg/liked.svg?inline';
 import RadioIcon from '~/assets/images/svg/radio.svg?inline';
+import LoveIcon from '~/assets/images/svg/love.svg?inline';
+import DiscIcon from '~/assets/images/svg/disc.svg?inline';
+import MusicIcon from '~/assets/images/svg/music.svg?inline';
 
 export default {
   components:{
     CompassIcon,
     LikedIcon,
-    RadioIcon
+    RadioIcon,
+    LoveIcon,
+    DiscIcon,
+    MusicIcon
   }
   
 }
@@ -90,6 +219,9 @@ export default {
   }
   .nav-link{
     @apply text-base text-color-grey-200 block mt-4;
+  }
+  .activity-link{
+    @apply text-sm text-color-grey-500  mt-4;
   }
 </style>
 
