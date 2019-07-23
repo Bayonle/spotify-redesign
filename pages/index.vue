@@ -47,7 +47,7 @@
                 <td>
                   <div class="flex items-center">
                     <music-plus-icon class="mr-8"/>
-                    <play-icon class="play" />
+                    <play-icon class="play" @click="playMusic(musicItem)" />
 
                   </div>
                 </td>
@@ -88,78 +88,19 @@ export default {
   },
   data: function(){
     return {
-      musicList: [
-        {
-          "title":"I Don’t Like Mondays",
-          "artist":"The Boomtown Rats",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Good For You",
-          "artist":"Selena Gomez",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Same Old Love",
-          "artist":"Selena Gomez",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Muddy Waters",
-          "artist":"LP",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Birileri",
-          "artist":"Nada",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-        {
-          "title":"Love Came Here",
-          "artist":"Lhasa De Sela",
-          "time":"4 days ago"
-        },
-      ]
+    }
+  },
+  methods: {
+    playMusic: function(musicItem){
+      this.$store.dispatch('playMusic', musicItem)
+    }
+  },
+  computed: {
+    counter: function(){
+      return this.$store.state.counter
+    },
+    musicList: function(){
+      return this.$store.state.musicList
     }
   }
 }

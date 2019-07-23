@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Devices_Available" width="16" height="13" data-name="Devices Available" viewBox="0 0 16 13">
+    <path id="Fill_1" d="M0 0v10h6V9H1V1h5V0z" style="fill:#b3b3b3" data-name="Fill 1"/>
+    <path id="Fill_2" d="M0 1h3V0H0z" style="fill:#b3b3b3" data-name="Fill 2" transform="translate(3 12)"/>
+    <path id="Fill_3" d="M8 13H0V0h8v13zM1 1v11h6V1z" style="fill:#b3b3b3" data-name="Fill 3" transform="translate(8)"/>
+    <path id="Fill_4" d="M0 1h2V0H0z" style="fill:#b3b3b3" data-name="Fill 4" transform="translate(11 3)"/>
+    <path id="Fill_5" d="M2 4a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm0-3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" style="fill:#b3b3b3" data-name="Fill 5" transform="translate(10 6)"/>
+</svg>

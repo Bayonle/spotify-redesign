@@ -10,6 +10,12 @@ module.exports = {
         '.gradient-blue-to-green': {
           'background-image': 'linear-gradient(to left, #1ed761, #1e64d7)'
         },
+        '.gradient-footer': {
+          'background-image': 'linear-gradient(to top, #020814, #030d20)'    
+        },
+        '.gradient-green-to-blue': {
+          'background-image': 'linear-gradient(to left, #1ed761, #1e64d7)'
+        },
 
       }
 
@@ -27,8 +33,10 @@ module.exports = {
         'color-grey-400': '#afafaf',
         'color-grey-200': '#a9a9a9',
         'color-grey-100': '#d4d4d4',
+        'color-grey-900': '#ababab',
+        'color-grey': '#787878',
         'color-black-1000': '#020916',
-
+        'color-gray': '#747474',
         'color-black':'#212020',
         'color-black-400':'#454545',
         'color-black-300':'#454545',

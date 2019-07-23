@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="95.003" height="12.414" viewBox="0 0 95.003 12.414">
+    <g id="Volume">
+        <g id="Volume-2" data-name="Volume">
+            <path id="Stroke_1" d="M6 10L3 7H0V3h3l3-3z" style="fill:none;stroke:#b3b3b3;stroke-miterlimit:10" data-name="Stroke 1" transform="translate(.5 1.207)"/>
+            <path id="Stroke_3" d="M0 11A7.777 7.777 0 0 0 0 0" style="stroke-linecap:round fill:none;stroke:#b3b3b3;stroke-miterlimit:10" data-name="Stroke 3" transform="translate(11.104 .707)"/>
+            <path id="Stroke_5" d="M0 6a4.242 4.242 0 0 0 0-6" style="stroke-linecap:round fill:none;stroke:#b3b3b3;stroke-miterlimit:10" data-name="Stroke 5" transform="translate(9.621 3.207)"/>
+        </g>
+        <rect id="Sound" width="72.003" height="4" style="fill:#b3b3b3" rx="2" transform="translate(23 4)"/>
+    </g>
+</svg>

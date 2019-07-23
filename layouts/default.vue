@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="relative">
     <div class="relative w-full">
-      <div class="left-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6 fixed left-0 top-0">
+      <div class="left-sidepanel w-1/5 h-auto min:h-screen gradient-deepblue py-6 px-6 fixed left-0 top-0">
 
         <div class="menu flex items-center">
           <div class="circle-dot"></div>
@@ -9,7 +9,7 @@
           <div class="circle-dot"></div>
         </div>
 
-        <div class="nav flex items-center justify-around mt-12">
+        <div class="nav flex items-center justify-around mt-8">
           <div class="flex flex-col justify-center items-center">
             <compass-icon />
             <span class="text-base text-color-grey-100 mt-2">browse</span>
@@ -23,7 +23,7 @@
             <span class="text-base text-color-grey-100 mt-2">liked</span>
           </div>
         </div>
-        <div class="badge text-color-black text-base px-8 py-3 rounded-full text-center gradient-blue-to-green mt-8">
+        <div class="badge text-color-black text-base px-8 py-3 rounded-full text-center gradient-blue-to-green mt-6">
           Made For You
         </div>
 
@@ -47,7 +47,11 @@
             <a href="" class="nav-link">90’s Popular</a>
             <a href="" class="nav-link">90’s Popular</a>
           </div>
-          <div class="action flex items-center justify-between px-8 py-3 rounded-full text-center border border-color-grey-700 mt-6">
+          <div class="action flex items-center justify-between px-8 py-3 rounded-full text-center border border-color-grey-700 mt-6 ">
+            <span class="text-base text-color-grey-300">New Playlist</span>
+            <i class="fa fa-plus text-base text-color-grey-300"></i>
+          </div>
+          <div class="action flex items-center justify-between px-8 py-3 rounded-full text-center border border-color-grey-700 mt-6 ">
             <span class="text-base text-color-grey-300">New Playlist</span>
             <i class="fa fa-plus text-base text-color-grey-300"></i>
           </div>
@@ -55,7 +59,7 @@
       </div>
 
       <div class="w-3/5 mx-auto">
-          <nuxt />
+          <nuxt ref="index" />
       </div>
 
       <div class="right-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6 fixed right-0 top-0">
@@ -188,16 +192,62 @@
 
       </div>
     </div>
+    <div class="footer w-full gradient-footer fixed bottom-0 left-0">
+
+      <div class="play-head w-full flex justify-center">
+        <div class="h-1 bg-color-gray w-3/5 rounded relative" ref="playHeadWrapper">
+          <div class="w-3 h-3 rounded-full bg-white absolute play-knob" ref="playKnob"></div>
+          <div class="h-1 gradient-green-to-blue rounded play-tip w-0" ref="playTip"></div>
+        </div>
+      </div>
+      <div class="w-full px-6 py-5 flex items-center">
+        <div class="w-1/3 flex items-center">
+          <music-plus-icon class="mr-3" />
+          <img src="~/assets/images/gaye.png" alt="" class="mr-3">
+          <div class="artist-name mr-6">
+            <h1 class="text-color-grey-900 text-base">{{activeMusic.title}} {{musicState}}</h1>
+            <p class="text-color-grey text-xs">{{activeMusic.artist}}</p>
+          </div>
+          <love-icon />
+        </div>
+        <div class="w-1/3 flex items-center justify-center">
+          <repeat-icon class=" mr-12" />
+          <back-icon class="mr-12"  @click="previousTrack"/>
+          <pause-icon class="mr-12" @click="pause" v-if="musicState === 'playing'"/>
+          <play-icon class="mr-12" @click="continueMusic" v-if="musicState === 'inactive' || musicState === 'paused'"/>
+          
+          <forward-icon class="mr-12" @click="nextTrack"/>
+          <shuffle-icon class="mr-12" />
+        </div>
+        <div class="w-1/3 flex items-center ml-auto flex justify-end pr-12">
+          <repeat-icon class="mr-3" />
+          <volume-icon />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { TweenMax, Back } from 'gsap'
 import CompassIcon from '~/assets/images/svg/compass.svg?inline';
 import LikedIcon from '~/assets/images/svg/liked.svg?inline';
 import RadioIcon from '~/assets/images/svg/radio.svg?inline';
 import LoveIcon from '~/assets/images/svg/love.svg?inline';
 import DiscIcon from '~/assets/images/svg/disc.svg?inline';
 import MusicIcon from '~/assets/images/svg/music.svg?inline';
+import MusicPlusIcon from '~/assets/images/svg/music-plus.svg?inline'
+import VolumeIcon from '~/assets/images/svg/volume.svg?inline'
+import DevicesIcon from '~/assets/images/svg/devices.svg?inline'
+import BackIcon from '~/assets/images/svg/back.svg?inline'
+import ForwardIcon from '~/assets/images/svg/forward.svg?inline'
+import PauseIcon from '~/assets/images/svg/pause.svg?inline'
+import RepeatIcon from '~/assets/images/svg/repeat.svg?inline'
+import ShuffleIcon from '~/assets/images/svg/shuffle.svg?inline'
+import PlayIcon from '~/assets/images/svg/play.svg?inline'
+
+let tween;
+let playKnobTween;
 
 export default {
   components:{
@@ -206,13 +256,91 @@ export default {
     RadioIcon,
     LoveIcon,
     DiscIcon,
-    MusicIcon
+    MusicIcon,
+    MusicPlusIcon,
+    VolumeIcon,
+    DevicesIcon,
+    BackIcon,
+    ForwardIcon,
+    PauseIcon,
+    ShuffleIcon,
+    RepeatIcon,
+    PlayIcon
+
+  },
+  data: function(){
+    return {
+
+    }
+    // playTipWidth: '0%'
+  },
+  methods: {
+    continueMusic: function(){
+      console.log(this.$refs.playTip);
+      this.$store.dispatch('continueMusic');
+      tween.paused(false);
+      playKnobTween.paused(false);
+      // TweenMax.to(this.$refs.playTip, 3, {width:'100%'});
+    },
+    pause: function(){
+      this.$store.dispatch('pauseMusic');
+      tween.paused(true);
+      playKnobTween.paused(true);
+    },
+    movePlayHead: function(){
+      let musicDuration = this.$store.state.activeMusic.duration;
+      tween = TweenMax.to(this.$refs.playTip, musicDuration, {width:'100%'});
+      let width = this.$refs.playHeadWrapper.offsetWidth;
+      playKnobTween = TweenMax.to(this.$refs.playKnob, musicDuration, {x:width});
+      // console.log(this.$store.state.activeMusic);
+      // console.log(musicDuration);
+    },
+    nextTrack: function(){
+      this.$store.dispatch('nextTrack')
+    },
+    previousTrack: function(){
+      this.$store.dispatch('previousTrack')
+    }
+  },
+  computed: {
+    activeMusic: function(){
+      return this.$store.state.activeMusic
+    },
+    musicState: function(){
+      // console.log('getter - ' + this.$store.getters['musicState']);
+      return this.$store.state.musicState
+    },
+    playTipHeadWidth: function(){
+      return this.$store.state.playTipHeadWidth
+    }
+  },
+  created: function(){
+  },
+  watch:{
+    musicState : function(val){
+      console.log('from watch -  ' + val);
+      if(val === 'changed'){
+        TweenMax.killTweensOf(this.$refs.playTip);
+        TweenMax.killTweensOf(this.$refs.playKnob);
+
+        // tween.kill();
+        TweenMax.to(this.$refs.playTip, .005, {width:'0%'});
+        TweenMax.to(this.$refs.playKnob, .005, {x:0});
+      }else if(val === 'playing'){
+        this.movePlayHead();
+      }
+    }
   }
   
 }
 </script>
 
 <style>
+  .play-knob{
+    left:0px;
+    top:-4px
+  }
+
 
   .circle-dot{
     @apply w-3 h-3 rounded-full bg-color-grey-700 mr-2;
