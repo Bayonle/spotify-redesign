@@ -287,13 +287,25 @@ export default {
       tween.paused(true);
       playKnobTween.paused(true);
     },
+    hmsToSecondsOnly(str) {
+      var p = str.split(':'),
+          s = 0, m = 1;
+
+      while (p.length > 0) {
+          s += m * parseInt(p.pop(), 10);
+          m *= 60;
+      }
+      return s;
+    },
     movePlayHead: function(){
       let musicDuration = this.$store.state.activeMusic.duration;
-      tween = TweenMax.to(this.$refs.playTip, musicDuration, {width:'100%'});
+      let musicDurationSeconds = this.hmsToSecondsOnly(musicDuration);
+      tween = TweenMax.to(this.$refs.playTip, musicDurationSeconds, {ease: Power0.easeNone, width:'100%'});
       let width = this.$refs.playHeadWrapper.offsetWidth;
-      playKnobTween = TweenMax.to(this.$refs.playKnob, musicDuration, {x:width});
+      playKnobTween = TweenMax.to(this.$refs.playKnob, musicDurationSeconds, {ease: Power0.easeNone, x:width});
       // console.log(this.$store.state.activeMusic);
       // console.log(musicDuration);
+      // { ease: Power0.easeNone, y: -500 }
     },
     nextTrack: function(){
       this.$store.dispatch('nextTrack')
