@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div class="relative w-full">
-      <div class="left-sidepanel w-1/5 h-auto min:h-screen gradient-deepblue py-6 px-6 fixed left-0 top-0">
+      <div class="left-sidepanel hidden md:block w-1/5 h-auto min:h-screen gradient-deepblue py-6 px-6 fixed left-0 top-0">
 
         <div class="menu flex items-center">
           <div class="circle-dot"></div>
@@ -58,11 +58,11 @@
         </div>
       </div>
 
-      <div class="w-3/5 mx-auto">
+      <div class="w-full md:w-3/5 mx-auto">
           <nuxt ref="index" />
       </div>
 
-      <div class="right-sidepanel w-1/5 h-screen gradient-deepblue py-6 px-6 fixed right-0 top-0">
+      <div class="right-sidepanel hidden md:block w-1/5 h-screen gradient-deepblue py-6 px-6 fixed right-0 top-0">
         <div class="profile flex items-center justify-between">
           <div class="user flex items-center w-1/2 justify-between">
             <img src="~/assets/images/eraz.png" alt="">
@@ -192,34 +192,34 @@
 
       </div>
     </div>
-    <div class="footer w-full gradient-footer fixed bottom-0 left-0">
-
+    <div class="footer w-full gradient-footer fixed bottom-0 left-0 px-4 md:px-0">
       <div class="play-head w-full flex justify-center">
-        <div class="h-1 bg-color-gray w-3/5 rounded relative" ref="playHeadWrapper">
+        <div class="h-1 bg-color-gray w-full md:w-3/5 rounded relative" ref="playHeadWrapper">
           <div class="w-3 h-3 rounded-full bg-white absolute play-knob" ref="playKnob"></div>
           <div class="h-1 gradient-green-to-blue rounded play-tip w-0" ref="playTip"></div>
         </div>
       </div>
-      <div class="w-full px-6 py-5 flex items-center">
-        <div class="w-1/3 flex items-center">
-          <music-plus-icon class="mr-3" />
-          <img src="~/assets/images/gaye.png" alt="" class="mr-3">
-          <div class="artist-name mr-6">
-            <h1 class="text-color-grey-900 text-base">{{activeMusic.title}} {{musicState}}</h1>
+
+      <div class="w-full px-6 py-5 md:flex items-center">
+        <div class="md:w-1/3 w-full md:flex items-center justify-start">
+          <music-plus-icon class="mr-3 hidden md:block" />
+          <img src="~/assets/images/gaye.png" alt="" class="mr-3 hidden md:block">
+          <div class="artist-name md:mr-6 w-full md:w-auto">
+            <h1 class="text-color-grey-900 text-base">{{activeMusic.title}}</h1>
             <p class="text-color-grey text-xs">{{activeMusic.artist}}</p>
           </div>
-          <love-icon />
+          <love-icon class="hidden md:inline"/>
         </div>
-        <div class="w-1/3 flex items-center justify-center">
-          <repeat-icon class=" mr-12" />
-          <back-icon class="mr-12"  @click="previousTrack"/>
-          <pause-icon class="mr-12" @click="pause" v-if="musicState === 'playing'"/>
-          <play-icon class="mr-12" @click="continueMusic" v-if="musicState === 'inactive' || musicState === 'paused'"/>
+        <div class="w-full md:w-1/3 flex items-center justify-between mt-4 md:mt-0">
+          <repeat-icon class=" md:mr-12" />
+          <back-icon class="md:mr-12"  @click="previousTrack"/>
+          <pause-icon class="md:mr-12" @click="pause" v-if="musicState === 'playing'"/>
+          <play-icon class="md:mr-12" @click="continueMusic" v-if="musicState === 'inactive' || musicState === 'paused'"/>
           
-          <forward-icon class="mr-12" @click="nextTrack"/>
-          <shuffle-icon class="mr-12" />
+          <forward-icon class="md:mr-12" @click="nextTrack"/>
+          <shuffle-icon class="md:mr-12" />
         </div>
-        <div class="w-1/3 flex items-center ml-auto flex justify-end pr-12">
+        <div class="hidden md:w-1/3 w-full md:flex items-center md:ml-auto md:justify-end justify-center pr-12">
           <repeat-icon class="mr-3" />
           <volume-icon />
         </div>

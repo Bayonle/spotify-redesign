@@ -15,21 +15,25 @@ export const state = () => ({
       "artist": "Florence and the Machine",
       "time": "4 days ago",
       "duration": "03:09",
-      "filename": "Florence_The_Machine_-_Jenny_of_Oldstones_Game_of_Thrones_.mp3"
+      "filename": "Florence_The_Machine_-_Jenny_of_Oldstones_Game_of_Thrones_.mp3",
+      "albumArt": "jenny.jpg"
     },
     {
       "title": "Pre-Occupied",
       "artist": "Jon Bellion Ft. Blaque Keyz",
       "time": "4 days ago",
       "duration": "04:28",
-      "filename": "Jon Bellion - Pre-Occupied Ft. Blaque Keyz.mp3"
+      "filename": "Jon Bellion - Pre-Occupied Ft. Blaque Keyz.mp3",
+      "albumArt": "bellion.jpg"
     },
     {
       "title": "Gbese",
       "artist": "Qdot",
       "time": "4 days ago",
       "duration": "04:04",
-      "filename": "Qdot-–-Gbese.mp3"
+      "filename": "Qdot-–-Gbese.mp3",
+      "albumArt": "qdot.jpg"
+
     },
   ]
 
@@ -53,13 +57,12 @@ export const mutations = {
   },
   setCurrentSource(state, newValue) {
     state.currentSource = newValue
-  }
+  },
 
 }
 
 export const actions = {
   playMusic({ commit, state, dispatch }, selectedMusic) {
-    debugger;
     commit('setActiveMusicBuffer', "");
     commit('setActiveMusic', selectedMusic)
     commit('setMusicState', 'changed');
@@ -78,7 +81,6 @@ export const actions = {
     // }
   },
   pauseMusic({ commit }) {
-    debugger;
     audioCtx.suspend().then(() => {
       commit('setMusicState', 'paused')
     });

@@ -1,26 +1,27 @@
 <template>
   <div class="mx-auto w-full relative">
-    <section class="header h-64 w-full px-8 py-3 fixed top-0 bg-no-repeat object-cover object-center" >
-      <div class="header-control w-full flex items-center justify-between">
+    <section class="header h-64 w-full px-8 py-3 fixed top-0 bg-no-repeat object-cover object-center" :style="{'background-image':activeMusicAlbumArt}">
+      <div class="header-control w-full md:flex items-center justify-between hidden">
         <div class="next-prev w-1/5 flex items-center">
           <i class="fa fa-angle-left text-white text-4xl mr-8"></i>
           <i class="fa fa-angle-right text-white text-4xl "></i>
         </div>
         <div class="w-3/5 relative">
           <div class="flex items-center justify-center w-full">
-            <input type="email" class="form-input mr-8 pl-24 prepend w-3/4 " placeholder="Search">
+            <input type="email" class="form-input mr-8 pl-24 prepend w-3/4" placeholder="Search">
           </div>
-            <div class="prepend-input">
-                <search-icon />
-            </div>
+          <div class="prepend-input">
+              <search-icon />
+          </div>
         </div>
-        <div class="w-1/5 ">
+        <div class="w-1/5">
           <queue-Icon class="ml-auto" />
         </div>
       </div>
+
     </section>
     <section id="music-section" class="w-full bg-color-black-1000 px-8 py-6 h-auto min-h-screen my-auto pt-64">
-      <div class="music-wrapper h-full pt-12">
+      <div class="music-wrapper h-full pt-12 block">
         <div class="toolbar flex items-center justify-between">
           <span class="text-color-grey-800 text-base">
             <i class="fa fa-search mr-3"></i>
@@ -31,8 +32,9 @@
             <div class="h-4 w-4 border border-color-grey-800 rounded-full"></div>
           </span>
         </div>
+
         <div class="table w-full">
-          <table class="w-full">
+          <table class="w-full hidden md:table">
             <thead>
               <tr>
                 <th></th>
@@ -60,8 +62,21 @@
               </tr>
             </tbody>
           </table>
+
+          <div class="mobile-view mt-8 block md:hidden">
+            <div v-for="musicItem in musicList" :key="musicItem.title" class="mb-6">
+              <div class="flex items-center justify-between">
+                <div class="music-info">
+                  <h4 class="text-color-grey-200 text-base text-left">{{musicItem.title}}</h4>
+                  <p class="text-color-grey-200 text-xs text-left">{{musicItem.artist}}</p>
+                </div>
+                <play-icon class="" @click="playMusic(musicItem)" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
 
     </section>
   </div>
@@ -101,6 +116,12 @@ export default {
     },
     musicList: function(){
       return this.$store.state.musicList
+    },
+    activeMusicAlbumArt: function(){
+      if(!this.$store.state.activeMusic)
+        return `url(/albumart/top_bg.png)`;
+      else
+        return `url(/albumart/${this.$store.state.activeMusic.albumArt})` 
     }
   }
 }
@@ -114,7 +135,9 @@ export default {
 */
 .header{
     padding-right:40rem; 
-    background-image:url(~assets/images/top_bg.png)
+    background-position: contain;
+    background-size: cover;
+    /* background-image:url(~assets/images/top_bg.png) */
   }
 .form-input{
     @apply appearance-none bg-color-grey-600 rounded-full py-2 px-3 text-color-black leading-tight
